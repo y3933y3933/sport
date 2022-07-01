@@ -1,7 +1,12 @@
 import classes from "./Home.module.css";
+import News from "../../components/News/News";
 
 const Home = () => {
-  return <section>首頁</section>;
+  return (
+    <section>
+      <News />
+    </section>
+  );
 };
 
 export default Home;
