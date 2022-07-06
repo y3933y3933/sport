@@ -1,13 +1,13 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
-const useFetch = (url = "", action = (f) => f) => {
-  const [isLoading, setIsLoading] = useState(false);
+const useFetch = () => {
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-
-  const fetchData = async () => {
-    setIsLoading(true);
+  const fetchData = useCallback(async (url, applyData) => {
+    setLoading(true);
     setError(null);
+
     try {
       const response = await fetch(url, {
         headers: {
@@ -15,22 +15,20 @@ const useFetch = (url = "", action = (f) => f) => {
           Accept: "application/json",
         },
       });
-
       if (!response.ok) {
         throw new Error("Request failed!");
       }
 
       const data = await response.json();
-      action(data);
+      applyData(data);
     } catch (err) {
-      setError(err.message);
+      setError(err.error);
     }
-    setIsLoading(false);
-  };
+  }, []);
 
   return {
-    isLoading,
     error,
+    loading,
     fetchData,
   };
 };

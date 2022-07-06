@@ -1,4 +1,4 @@
 .main {
-  @apply bg-secondary-1;
+  @apply bg-secondary-1 flex;
   min-height: calc(100% - 88px);
 }

@@ -1,23 +1,18 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import useFetch from "../../hooks/use-fetch";
 import NewsItem from "./NewsItem";
 
 const News = () => {
-
   const [news, setNews] = useState([]);
-  function transFormNews(data) {
-    setNews(data.data);
-  }
 
-  const {
-    isLoading,
-    error,
-    fetchData: fetchNews,
-  } = useFetch("data/news/news.json", transFormNews);
+  const { loading, error, fetchData } = useFetch();
 
   useEffect(() => {
-    fetchNews();
-  }, []);
+    const transFormNews = (data) => {
+      setNews(data.data);
+    };
+    fetchData("data/news/news.json", transFormNews);
+  }, [fetchData]);
 
   const NewsList = () => {
     return news.map((item) => <NewsItem key={item.id} {...item} />);

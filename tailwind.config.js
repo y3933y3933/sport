@@ -10,6 +10,9 @@ module.exports = {
     },
     container: {
       center: true,
+      padding: {
+        sm:'1rem'
+      },
     },
     extend: {
       colors: {
@@ -19,7 +22,5 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    require('@tailwindcss/line-clamp'),
-  ],
+  plugins: [require("@tailwindcss/line-clamp")],
 };
