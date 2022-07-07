@@ -13,7 +13,6 @@ const BackDrop = (props) => {
 };
 
 const ModalOverlay = (props) => {
-  console.log("modal", props);
   return (
     <div className={classes.modal}>
       <div className={classes["modal-header"]}>
@@ -23,8 +22,8 @@ const ModalOverlay = (props) => {
           onClick={props.onClose}
         />
       </div>
-      <div className="flex-grow p-2 border-b-[0.5px]">{props.children}</div>
-      <div className="p-2 text-sm"></div>
+      <div className="flex-grow p-4 border-b-[0.5px] break-words">{props.children}</div>
+      {props.footer && <div className="p-2 text-sm"></div>}
     </div>
   );
 };
