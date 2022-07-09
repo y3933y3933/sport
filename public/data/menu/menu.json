@@ -1,0 +1,12 @@
+{
+  "data": [
+    {
+      "text": "場地預約",
+      "route": "/reservation"
+    },
+    {
+      "text": "使用須知",
+      "subMenu": []
+    }
+  ]
+}

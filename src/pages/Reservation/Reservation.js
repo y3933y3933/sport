@@ -1,11 +1,16 @@
 import classes from "./Reservation.module.css";
+import Search from "./Search/Search";
 
 /**
  * 場地預約
  * @returns
  */
 const Reservation = () => {
-  return <section>場地預約</section>;
+  return (
+    <section>
+      <Search />
+    </section>
+  );
 };
 
 export default Reservation;
